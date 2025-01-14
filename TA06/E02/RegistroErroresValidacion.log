@@ -1,0 +1,3 @@
+../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 3 column 5 has invalid value 'z'
+../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 10 has invalid year '206'
+../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 22 column 14 has invalid value 'diego'
