@@ -12,3 +12,5 @@ Luego se deberán de subir los datos al PyCharm para poder procesarlas y organiz
 ![ImagenPyCHarm](./Caps/Cap_PyCharm.png)
 
 ## Ejercicio 2
+Una vez obtenidos los datos, deberemos de organizarlos y procesarlos. Para ello utilizamos la aplicación de PyCharm y con el apoyo de Copilot, en la que crearemos un archivo y utilizaremos el lenguaje Python.
+
