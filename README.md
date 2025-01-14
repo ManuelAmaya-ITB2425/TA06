@@ -7,3 +7,6 @@ Primero de todo debíamos de **obtener los datos**, para ello debíamos entrar e
 
 Ahora, una vez obtenido la API-key, entramos a la página de AEMET por el enlace directo que nos ofreció el profesor, pegamos la API-key y buscamos el que era el archivo correcto a descargar:
 ![ImagenDescarga](./Caps/Cap_ArchDownload.png)
+
+Luego se deberán de subir los datos al PyCharm para poder procesarlas y organizarlas.
+![ImagenPyCHarm](./Caps/Cap_PyCharm.png)
