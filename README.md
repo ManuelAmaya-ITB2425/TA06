@@ -10,3 +10,5 @@ Ahora, una vez obtenido la API-key, entramos a la página de AEMET por el enlace
 
 Luego se deberán de subir los datos al PyCharm para poder procesarlas y organizarlas.
 ![ImagenPyCHarm](./Caps/Cap_PyCharm.png)
+
+## Ejercicio 2
