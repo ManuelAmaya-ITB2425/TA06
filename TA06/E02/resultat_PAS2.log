@@ -1,0 +1,12 @@
+
+Formats diferents detectats:
+Arxiu: prova_incorrecte.dat | Columnes: 3 | Primeres dades: ['columna1', 'columna2', 'columna3'] | Delimitador: ','
+
+Total d'arxius: 16065
+Arxius correctes: 16064 (99.99%)
+Arxius incorrectes: 1 (0.01%)
+
+Total columnes en tots els arxius: 96387
+Total delimitadors en tots els arxius:
+Delimitador '	': 16064 vegades
+Delimitador ',': 1 vegades
