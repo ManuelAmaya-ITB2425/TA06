@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 def validate_file(file_path, expected_header, log_file):
     """
@@ -73,9 +74,14 @@ def validate_folder(folder_path, expected_header, log_file_path):
     total_files = 0
     valid_files = 0
 
-    with open(log_file_path, 'w') as log_file:
+    with open(log_file_path, 'a') as log_file:
+        log_file.write(f"\nLog Date: {datetime.now()}\n")
         for root, _, files in os.walk(folder_path):
             for file in files:
+                if not file.endswith('.dat'):
+                    log_file.write(f"{os.path.join(root, file)}: Invalid file format\n")
+                    continue
+
                 file_path = os.path.join(root, file)
                 total_files += 1
                 if validate_file(file_path, expected_header, log_file):
