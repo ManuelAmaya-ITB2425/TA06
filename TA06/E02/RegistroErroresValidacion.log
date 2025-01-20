@@ -1,8 +1,20 @@
-../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 3 column 5 has invalid value 'z'
-../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 10 has invalid year '206'
-../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 22 column 14 has invalid value 'diego'
 
-Log Date: 2025-01-20 08:05:51.275744
-../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 3 column 5 has invalid value 'z'
-../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 10 has invalid year '206'
-../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 22 column 14 has invalid value 'diego'
+Log Date: 2025-01-20 09:26:21.679727
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 3 column 5 has invalid value 'z'
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 10 has invalid year '206'
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 22 column 14 has invalid value 'diego'
+
+Log Date: 2025-01-20 09:36:19.342478
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 3 column 5 has invalid value 'z'
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 10 has invalid year '206'
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 22 column 14 has invalid value 'diego'
+
+Log Date: 2025-01-20 09:42:47.096646
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 3 column 5 has invalid value 'z'
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 10 has invalid year '206'
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 22 column 14 has invalid value 'diego'
+
+Log Date: 2025-01-20 09:44:21.399954
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 3 column 5 has invalid value 'z'
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 10 has invalid year '206'
+../../prova/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 22 column 14 has invalid value 'diego'
