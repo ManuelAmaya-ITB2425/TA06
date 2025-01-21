@@ -138,3 +138,4 @@ valid_percentage = validate_folder(folder_path, expected_header, log_file_path, 
 print(f"Percentage of valid files: {valid_percentage:.2f}%")
 print(f"Log file: {log_file_path}")
 print(f"Statistics file: {stats_file_path}")
+#Si
