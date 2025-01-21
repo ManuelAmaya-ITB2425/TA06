@@ -1,7 +1,8 @@
 import os
 from datetime import datetime
+import numpy as np
 
-def validate_file(file_path, expected_header, log_file):
+def validate_file(file_path, expected_header, log_file, annual_precipitation):
     """
     Validates a file with space-separated values and logs statistics.
 
@@ -9,6 +10,7 @@ def validate_file(file_path, expected_header, log_file):
     file_path (str): The path to the file to be validated.
     expected_header (str): The expected first line of the header.
     log_file (file object): The file object to log errors.
+    annual_precipitation (dict): Dictionary to accumulate annual precipitation.
 
     Returns:
     tuple: (bool, int, int) True if the file is valid, False otherwise, total days, and invalid days.
@@ -55,9 +57,13 @@ def validate_file(file_path, expected_header, log_file):
                         total_days += 1
                         if num_value == -999:
                             invalid_days += 1
-                        if not (num_value > 0 or num_value == -999):
+                        if not (num_value >= 0 or num_value == -999):
                             log_file.write(f"{file_path}: Line {line_num} column {col_num} has invalid value '{value}'\n")
                             is_valid = False
+                        if num_value != -999:
+                            if year not in annual_precipitation:
+                                annual_precipitation[year] = []
+                            annual_precipitation[year].append(num_value)
                     except ValueError:
                         log_file.write(f"{file_path}: Line {line_num} column {col_num} has invalid value '{value}'\n")
                         is_valid = False
@@ -85,6 +91,7 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
     valid_files = 0
     total_days = 0
     invalid_days = 0
+    annual_precipitation = {}
 
     with open(log_file_path, 'a') as log_file, open(stats_file_path, 'a') as stats_file:
         log_file.write(f"\nLog Date: {datetime.now()}\n")
@@ -97,7 +104,7 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
 
                 file_path = os.path.join(root, file)
                 total_files += 1
-                is_valid, file_total_days, file_invalid_days = validate_file(file_path, expected_header, log_file)
+                is_valid, file_total_days, file_invalid_days = validate_file(file_path, expected_header, log_file, annual_precipitation)
                 total_days += file_total_days
                 invalid_days += file_invalid_days
                 if is_valid:
@@ -106,6 +113,16 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
         if total_days > 0:
             invalid_percentage = (invalid_days / total_days) * 100
             stats_file.write(f"Total: {invalid_days} out of {total_days} days are -999 ({invalid_percentage:.2f}%)\n")
+
+        # Calculate and log the average annual precipitation
+        for year, precipitations in annual_precipitation.items():
+            average_precipitation = np.mean(precipitations)
+            stats_file.write(f"Year {year}: Average annual precipitation is {average_precipitation:.2f}\n")
+
+        # Calculate and log the percentage of valid files
+        if total_files > 0:
+            valid_percentage = (valid_files / total_files) * 100
+            stats_file.write(f"Percentage of valid files: {valid_percentage:.2f}%\n")
 
     if total_files == 0:
         return 0.0
