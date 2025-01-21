@@ -115,14 +115,33 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
             stats_file.write(f"Total: {invalid_days} out of {total_days} days are -999 ({invalid_percentage:.2f}%)\n")
 
         # Calculate and log the average annual precipitation
-        for year, precipitations in annual_precipitation.items():
-            average_precipitation = np.mean(precipitations)
+        years = sorted(annual_precipitation.keys())
+        for year in years:
+            average_precipitation = np.mean(annual_precipitation[year])
             stats_file.write(f"Year {year}: Average annual precipitation is {average_precipitation:.2f}\n")
+
+        # Calculate and log the annual variation rate
+        for i in range(1, len(years)):
+            prev_year = years[i - 1]
+            curr_year = years[i]
+            variation_rate = np.mean(annual_precipitation[curr_year]) - np.mean(annual_precipitation[prev_year])
+            stats_file.write(f"Annual variation from {prev_year} to {curr_year}: {variation_rate:.2f}\n")
 
         # Calculate and log the percentage of valid files
         if total_files > 0:
             valid_percentage = (valid_files / total_files) * 100
             stats_file.write(f"Percentage of valid files: {valid_percentage:.2f}%\n")
+        #Calculate and log the years with maximum and minimum precipitation
+        if annual_precipitation:
+            sorted_years = sorted(annual_precipitation, key=lambda year: np.sum(annual_precipitation[year]))
+            min_years = sorted_years[:3]
+            max_years = sorted_years[-3:]
+            for year in max_years:
+                max_precipitation = np.sum(annual_precipitation[year])
+                stats_file.write(f"Year with maximum precipitation: {year} with {max_precipitation:.2f} liters\n")
+            for year in min_years:
+                min_precipitation = np.sum(annual_precipitation[year])
+                stats_file.write(f"Year with minimum precipitation: {year} with {min_precipitation:.2f} liters\n")
 
     if total_files == 0:
         return 0.0
@@ -138,4 +157,3 @@ valid_percentage = validate_folder(folder_path, expected_header, log_file_path, 
 print(f"Percentage of valid files: {valid_percentage:.2f}%")
 print(f"Log file: {log_file_path}")
 print(f"Statistics file: {stats_file_path}")
-#Si
