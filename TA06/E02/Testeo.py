@@ -162,7 +162,7 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
     return (valid_files / total_files) * 100
 
 # Example usage
-folder_path = '../../prova'
+folder_path = '../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ'
 expected_header = 'precip\tMIROC5\tRCP60\tREGRESION\tdecimas\t1'
 log_file_path = 'RegistroErroresValidacion.log'
 stats_file_path = 'EstadisticasValidacion.log'
