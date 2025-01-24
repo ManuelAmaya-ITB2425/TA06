@@ -8,7 +8,7 @@ MONTH_NAMES = {
     '9': 'September', '10': 'October', '11': 'November', '12': 'December'
 }
 
-def validate_file(file_path, expected_header, log_file, annual_precipitation, data_count, station_precipitation, monthly_precipitation):
+def validate_file(file_path, expected_header, log_file, annual_precipitation, data_count, station_precipitation, monthly_precipitation, monthly_totals):
     is_valid = True
     total_days = 0
     invalid_days = 0
@@ -51,13 +51,20 @@ def validate_file(file_path, expected_header, log_file, annual_precipitation, da
                             is_valid = False
                         if num_value != -999:
                             if year not in annual_precipitation:
-                                annual_precipitation[year] = {'total_precipitation': 0, 'valid_days': 0}
-                            annual_precipitation[year]['total_precipitation'] += num_value
-                            annual_precipitation[year]['valid_days'] += 1
+                                annual_precipitation[year] = {}
+                            if file_path not in annual_precipitation[year]:
+                                annual_precipitation[year][file_path] = 0
+                            annual_precipitation[year][file_path] += num_value
                             station_total_precipitation += num_value
-                            if month not in monthly_precipitation:
-                                monthly_precipitation[month] = 0
-                            monthly_precipitation[month] += num_value
+                            if file_path not in monthly_precipitation:
+                                monthly_precipitation[file_path] = {}
+                            if month not in monthly_precipitation[file_path]:
+                                monthly_precipitation[file_path][month] = 0
+                            monthly_precipitation[file_path][month] += num_value
+                            if month not in monthly_totals:
+                                monthly_totals[month] = {'total': 0, 'count': 0}
+                            monthly_totals[month]['total'] += num_value
+                            monthly_totals[month]['count'] += 1
                     except ValueError:
                         log_file.write(f"{file_path}: Line {line_num} column {col_num} has invalid value '{value}'\n")
                         is_valid = False
@@ -78,6 +85,7 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
     data_count = 0
     station_precipitation = {}
     monthly_precipitation = {}
+    monthly_totals = {}
 
     with open(log_file_path, 'a') as log_file, open(stats_file_path, 'a') as stats_file:
         log_file.write(f"\nLog Date: {datetime.now()}\n")
@@ -90,7 +98,7 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
 
                 file_path = os.path.join(root, file)
                 total_files += 1
-                is_valid, file_total_days, file_invalid_days, data_count = validate_file(file_path, expected_header, log_file, annual_precipitation, data_count, station_precipitation, monthly_precipitation)
+                is_valid, file_total_days, file_invalid_days, data_count = validate_file(file_path, expected_header, log_file, annual_precipitation, data_count, station_precipitation, monthly_precipitation, monthly_totals)
                 total_days += file_total_days
                 invalid_days += file_invalid_days
                 if is_valid:
@@ -98,40 +106,55 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
 
         if total_days > 0:
             invalid_percentage = (invalid_days / total_days) * 100
-            stats_file.write(f"Total: {invalid_days} out of {total_days} days are -999 ({invalid_percentage:.2f}%)\n")
+            valid_percentage_days = 100 - invalid_percentage
+            stats_file.write(f"Percentage of valid days: {valid_percentage_days:.2f}%\n")
+            stats_file.write(f"Percentage of invalid days: {invalid_percentage:.2f}%\n")
+
+        if total_files > 0:
+            valid_percentage_files = (valid_files / total_files) * 100
+            stats_file.write(f"Percentage of valid files: {valid_percentage_files:.2f}%\n")
+
+        stats_file.write(f"Number of processed data points: {data_count}\n")
 
         years = sorted(annual_precipitation.keys())
+        year_avg_precipitation = {}
         for year in years:
-            total_precipitation = annual_precipitation[year]['total_precipitation']
-            valid_days = annual_precipitation[year]['valid_days']
-            if valid_days > 0:
-                average_precipitation = total_precipitation / valid_days
-                stats_file.write(f"Year {year}: Average annual precipitation is {average_precipitation:.2f}\n")
+            total_precipitation = sum(annual_precipitation[year].values())
+            num_stations = len(annual_precipitation[year])
+            average_precipitation = total_precipitation / num_stations
+            year_avg_precipitation[year] = average_precipitation
+
+        sorted_years = sorted(year_avg_precipitation.items(), key=lambda x: x[1], reverse=True)
+        top_three_years = sorted_years[:3]
+        bottom_three_years = sorted_years[-3:]
+
+        stats_file.write("Top 3 years with most precipitation:\n")
+        for year, avg_precip in top_three_years:
+            stats_file.write(f"  Year {year}: {avg_precip:.2f} liters\n")
+
+        stats_file.write("Top 3 driest years:\n")
+        for year, avg_precip in bottom_three_years:
+            stats_file.write(f"  Year {year}: {avg_precip:.2f} liters\n")
+
+        stats_file.write("Average monthly precipitation across all stations:\n")
+        for month, totals in sorted(monthly_totals.items()):
+            month_name = MONTH_NAMES[month]
+            avg_precip = totals['total'] / totals['count']
+            stats_file.write(f"  {month_name}: {avg_precip:.2f} liters per day\n")
+
+        for year in years:
+            total_precipitation = sum(annual_precipitation[year].values())
+            num_stations = len(annual_precipitation[year])
+            average_precipitation = total_precipitation / num_stations
+            stats_file.write(f"Year {year}: Total precipitation is {total_precipitation:.2f} liters, Average annual precipitation is {average_precipitation:.2f} liters\n")
 
         for i in range(1, len(years)):
             prev_year = years[i - 1]
             curr_year = years[i]
-            prev_avg = annual_precipitation[prev_year]['total_precipitation'] / annual_precipitation[prev_year]['valid_days']
-            curr_avg = annual_precipitation[curr_year]['total_precipitation'] / annual_precipitation[curr_year]['valid_days']
-            variation_rate = curr_avg - prev_avg
-            stats_file.write(f"Annual variation from {prev_year} to {curr_year}: {variation_rate:.2f}\n")
-
-        if total_files > 0:
-            valid_percentage = (valid_files / total_files) * 100
-            stats_file.write(f"Percentage of valid files: {valid_percentage:.2f}%\n")
-
-        stats_file.write(f"Number of processed data points: {data_count}\n")
-
-        if station_precipitation:
-            max_station = max(station_precipitation, key=station_precipitation.get)
-            max_precipitation = station_precipitation[max_station]
-            stats_file.write(f"Station with maximum precipitation: {max_station} with {max_precipitation:.2f} liters\n")
-
-        if monthly_precipitation:
-            max_month = max(monthly_precipitation, key=monthly_precipitation.get)
-            max_month_precipitation = monthly_precipitation[max_month]
-            max_month_name = MONTH_NAMES[max_month]
-            stats_file.write(f"Month with maximum precipitation: {max_month_name} with {max_month_precipitation:.2f} liters\n")
+            prev_total = sum(annual_precipitation[prev_year].values())
+            curr_total = sum(annual_precipitation[curr_year].values())
+            variation = curr_total - prev_total
+            stats_file.write(f"Annual variation from {prev_year} to {curr_year}: {variation:.2f} liters\n")
 
     if total_files == 0:
         return 0.0
