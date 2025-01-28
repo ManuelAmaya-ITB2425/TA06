@@ -1,6 +1,8 @@
 import os
 from datetime import datetime
 import numpy as np
+import matplotlib.pyplot as plt
+import csv
 
 MONTH_NAMES = {
     '1': 'January', '2': 'February', '3': 'March', '4': 'April',
@@ -76,6 +78,33 @@ def validate_file(file_path, expected_header, log_file, annual_precipitation, da
     station_precipitation[file_path] = station_total_precipitation
     return is_valid, total_days, invalid_days, data_count
 
+def plot_statistics(year_avg_precipitation, monthly_totals, output_path):
+    years = list(year_avg_precipitation.keys())
+    avg_precipitation = list(year_avg_precipitation.values())
+
+    plt.figure(figsize=(10, 5))
+
+    # Plot average annual precipitation
+    plt.subplot(1, 2, 1)
+    plt.bar(years, avg_precipitation, color='blue')
+    plt.xlabel('Year')
+    plt.ylabel('Average Annual Precipitation (liters)')
+    plt.title('Average Annual Precipitation')
+
+    # Plot average monthly precipitation
+    months = [MONTH_NAMES[str(i)] for i in range(1, 13)]
+    avg_monthly_precipitation = [monthly_totals[str(i)]['total'] / monthly_totals[str(i)]['count'] for i in range(1, 13)]
+
+    plt.subplot(1, 2, 2)
+    plt.bar(months, avg_monthly_precipitation, color='green')
+    plt.xlabel('Month')
+    plt.ylabel('Average Monthly Precipitation (liters)')
+    plt.title('Average Monthly Precipitation')
+
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.show()
+
 def validate_folder(folder_path, expected_header, log_file_path, stats_file_path):
     total_files = 0
     valid_files = 0
@@ -121,7 +150,7 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
         for year in years:
             total_precipitation = sum(annual_precipitation[year].values())
             num_stations = len(annual_precipitation[year])
-            average_precipitation = total_precipitation / num_stations
+            average_precipitation = (total_precipitation / num_stations) / 12
             year_avg_precipitation[year] = average_precipitation
 
         sorted_years = sorted(year_avg_precipitation.items(), key=lambda x: x[1], reverse=True)
@@ -145,16 +174,44 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
         for year in years:
             total_precipitation = sum(annual_precipitation[year].values())
             num_stations = len(annual_precipitation[year])
-            average_precipitation = total_precipitation / num_stations
-            stats_file.write(f"Year {year}: Total precipitation is {total_precipitation:.2f} liters, Average annual precipitation is {average_precipitation:.2f} liters\n")
+            average_precipitation = (total_precipitation / num_stations) / 12
+            stats_file.write(f"Year {year}: Total precipitation is {total_precipitation:.2f} liters, Average annual precipitation is {average_precipitation:.3f} liters\n")
 
         for i in range(1, len(years)):
             prev_year = years[i - 1]
             curr_year = years[i]
             prev_total = sum(annual_precipitation[prev_year].values())
             curr_total = sum(annual_precipitation[curr_year].values())
-            variation = curr_total - prev_total
+            variation = (curr_total - prev_total) / 12
             stats_file.write(f"Annual variation from {prev_year} to {curr_year}: {variation:.2f} liters\n")
+
+    plot_statistics(year_avg_precipitation, monthly_totals, '../E03/statistics_plot.png')
+
+    # Print summary statistics to the terminal
+    print(f"Percentage of valid files: {valid_percentage_files:.2f}%")
+    print(f"Percentage of valid days: {valid_percentage_days:.2f}%")
+    print(f"Number of processed data points: {data_count}")
+    print("Top 3 years with most precipitation:")
+    for year, avg_precip in top_three_years:
+        print(f"  Year {year}: {avg_precip:.2f} liters")
+    print("Top 3 driest years:")
+    for year, avg_precip in bottom_three_years:
+        print(f"  Year {year}: {avg_precip:.2f} liters")
+
+    # Export summary statistics to CSV
+    csv_output_path = '../E03/summary_statistics.csv'
+    with open(csv_output_path, 'w', newline='') as csvfile:
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerow(['Statistic', 'Value'])
+        csvwriter.writerow(['Percentage of valid files', f"{valid_percentage_files:.2f}%"])
+        csvwriter.writerow(['Percentage of valid days', f"{valid_percentage_days:.2f}%"])
+        csvwriter.writerow(['Number of processed data points', data_count])
+        csvwriter.writerow(['Top 3 years with most precipitation'])
+        for year, avg_precip in top_three_years:
+            csvwriter.writerow([f"Year {year}", f"{avg_precip:.2f} liters"])
+        csvwriter.writerow(['Top 3 driest years'])
+        for year, avg_precip in bottom_three_years:
+            csvwriter.writerow([f"Year {year}", f"{avg_precip:.2f} liters"])
 
     if total_files == 0:
         return 0.0
@@ -170,3 +227,4 @@ valid_percentage = validate_folder(folder_path, expected_header, log_file_path, 
 print(f"Percentage of valid files: {valid_percentage:.2f}%")
 print(f"Log file: {log_file_path}")
 print(f"Statistics file: {stats_file_path}")
+print(f"Summary statistics CSV file: ../E03/summary_statistics.csv")
