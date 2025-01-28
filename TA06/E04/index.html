@@ -8,6 +8,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
         th, td {
             padding: 8px;
@@ -16,22 +17,67 @@
     </style>
 </head>
 <body>
-    <h1>Datos meteorologicos AEMET</h1>
+    <h1>Datos meteorológicos AEMET</h1>
     <br>
+
+    <!-- Tabla de Resúmenes estadísticos -->
     <table>
         <thead>
             <tr>
-                <th><strong>Resumenes estadisticos:</strong></th>
-                <td>Columna 1</td>
-            </tr>
-            <tr>
-                <th><strong>Graficos estadisticos:</strong></th>
-                <td>Columna 2</td>
+                <th colspan="2"><strong>Resumenes estadísticos:</strong></th>
             </tr>
         </thead>
         <tbody>
-            <!-- Las filas de datos van aquí -->
+            <!-- Datos insertados manualmente desde el CSV -->
+            <tr>
+                <td><strong>Fecha</strong></td>
+                <td>2025-01-28</td>
+            </tr>
+            <tr>
+                <td><strong>Temperatura máxima</strong></td>
+                <td>25°C</td>
+            </tr>
+            <tr>
+                <td><strong>Temperatura mínima</strong></td>
+                <td>15°C</td>
+            </tr>
+            <tr>
+                <td><strong>Temperatura media</strong></td>
+                <td>20°C</td>
+            </tr>
+            <tr>
+                <td><strong>Humedad máxima</strong></td>
+                <td>80%</td>
+            </tr>
+            <tr>
+                <td><strong>Humedad mínima</strong></td>
+                <td>60%</td>
+            </tr>
+            <tr>
+                <td><strong>Humedad media</strong></td>
+                <td>70%</td>
+            </tr>
         </tbody>
     </table>
+
+    <!-- Tabla de Gráficos estadísticos -->
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2"><strong>Gráficos estadísticos:</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Muestra un gráfico PNG desde ruta local -->
+            <tr>
+                <td><strong>Gráfico de velocidad del viento</strong></td>
+                <td><img src="imagenes/grafico-viento.png" alt="Gráfico de viento" width="500"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <!-- Enlace al CSV (esto solo funciona para abrirlo directamente, no procesarlo) -->
+    <a href="../E03/summary_statistics.csv" download>Descargar CSV</a>
 </body>
 </html>
