@@ -41,4 +41,6 @@ A veces los codigos o los datos pueden tener error, por lo tanto hay que tener u
 
 ## Ejercicio 3
 
-Una vez hemos obtenido todos los datos necesarios
+Una vez hemos obtenido todos los datos necesarios hay que crear resumenes estadisticos y graficos estadisticos, para que sea mucho mas facil de entender.
+
+
