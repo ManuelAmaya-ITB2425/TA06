@@ -15,3 +15,34 @@ Luego se deberán de subir los datos al PyCharm para poder procesarlas y organiz
 Una vez obtenidos los datos, deberemos de organizarlos y procesarlos. Para ello utilizamos la aplicación de PyCharm y con el apoyo de Copilot, en la que crearemos un archivo y utilizaremos el lenguaje Python.
 
 Para ello el código debe de poder leer los ficheros; saber que estén delimitados a los datos especificados (Espacios, comas, separar cabecera de los datos, que todos los archivos tengan el mismo formato y asegurando que no tengan ningún error, según los delimitadores especificados. 
+
+Después hay que calcular el porcentaje de datos que faltan (-999), las estadisticas de los datos procesados:
+
+- **Medianas totales y anuales**
+- **Tendencia de cambio**
+- **Extremos (Años con mas y menos precipitaciones)**
+
+Todos los datos que tenemos hay que extraerlos, por lo tanto hay que crear un fichero log, para poder ver las estadisticas que pedimos.
+
+![resultatScript](./Caps/resultatScript.png)
+
+Ademas habrá que analizar los datos, de manera que tengamos que pensar que estadisticas podemos hacer.
+
+Para poder obtener todas las estadisticas necesarias necesitaremos un script:
+
+![codi1](./Caps/codi1.png)
+![codi2](./Caps/codi2.png)
+![codi3](./Caps/codi3.png)
+![codi4](./Caps/codi4.png)
+
+A veces los codigos o los datos pueden tener error, por lo tanto hay que tener un fichero de errores, que indique que errores tenemos.
+
+![ficheroError](./Caps/ficheroError.png)
+
+## Ejercicio 3
+
+Una vez hemos obtenido todos los datos necesarios hay que crear resumenes estadisticos y graficos estadisticos, para que sea mucho mas facil de entender.
+
+![graficos](./Caps/statistics_plot.png)ç
+
+Después hay que exportar esos resumenes estadisticos a un fichero csv.
