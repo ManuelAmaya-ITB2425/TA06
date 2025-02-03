@@ -18,6 +18,11 @@ Para ello el código debe de poder leer los ficheros; saber que estén delimitad
 
 Después hay que calcular el porcentaje de datos que faltan (-999), las estadisticas de los datos procesados:
 
+- **Medianas totales y anuales**
+- **Tendencia de cambio**
+- **Extremos (Años con mas y menos precipitaciones)**
+
+ Ademas habrá que analizar los datos, de manera que tengamos que pensar que estadisticas podemos hacer.
 
 
 ## Ejercicio 3
