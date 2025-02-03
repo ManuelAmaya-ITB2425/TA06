@@ -24,7 +24,13 @@ Después hay que calcular el porcentaje de datos que faltan (-999), las estadist
 
 ![resultatScript](./Caps/resultatScript.png)
 
- Ademas habrá que analizar los datos, de manera que tengamos que pensar que estadisticas podemos hacer.
+Ademas habrá que analizar los datos, de manera que tengamos que pensar que estadisticas podemos hacer.
 
+Para poder obtener todas las estadisticas necesarias necesitaremos un script:
+
+![codi1](./Caps/codi1.png)
+![codi2](./Caps/codi2.png)
+![codi3](./Caps/codi3.png)
+![codi4](./Caps/codi4.png)
 
 ## Ejercicio 3
