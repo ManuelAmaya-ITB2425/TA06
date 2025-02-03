@@ -3,81 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos del CSV</title>
+    <title>Resumen Estadístico</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
         table {
-            width: 100%;
+            margin: 20px auto;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            width: 80%;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
         }
         th, td {
             padding: 8px;
             text-align: left;
         }
+        img {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
-    <h1>Datos meteorológicos AEMET</h1>
-    <br>
 
-    <!-- Tabla de Resúmenes estadísticos -->
-    <table>
-        <thead>
-            <tr>
-                <th colspan="2"><strong>Resumenes estadísticos:</strong></th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Datos insertados manualmente desde el CSV -->
-            <tr>
-                <td><strong>Fecha</strong></td>
-                <td>2025-01-28</td>
-            </tr>
-            <tr>
-                <td><strong>Temperatura máxima</strong></td>
-                <td>25°C</td>
-            </tr>
-            <tr>
-                <td><strong>Temperatura mínima</strong></td>
-                <td>15°C</td>
-            </tr>
-            <tr>
-                <td><strong>Temperatura media</strong></td>
-                <td>20°C</td>
-            </tr>
-            <tr>
-                <td><strong>Humedad máxima</strong></td>
-                <td>80%</td>
-            </tr>
-            <tr>
-                <td><strong>Humedad mínima</strong></td>
-                <td>60%</td>
-            </tr>
-            <tr>
-                <td><strong>Humedad media</strong></td>
-                <td>70%</td>
-            </tr>
-        </tbody>
-    </table>
+    <h1>Resumen Estadístico</h1>
 
-    <!-- Tabla de Gráficos estadísticos -->
-    <table>
-        <thead>
-            <tr>
-                <th colspan="2"><strong>Gráficos estadísticos:</strong></th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Muestra un gráfico PNG desde ruta local -->
-            <tr>
-                <td><strong>Gráfico de velocidad del viento</strong></td>
-                <td><img src="imagenes/grafico-viento.png" alt="Gráfico de viento" width="500"></td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Mostrar la imagen -->
+    <img src="../E03/statistics_plot.png" alt="Gráfico Estadístico">
 
-    <br>
-    <!-- Enlace al CSV (esto solo funciona para abrirlo directamente, no procesarlo) -->
-    <a href="../E03/summary_statistics.csv" download>Descargar CSV</a>
+    <h2>Resumen de los datos</h2>
+
+    <!-- Contenedor para mostrar la tabla con los datos del CSV -->
+    <div id="csv-data"></div>
+
+    <!-- Vincular el archivo JavaScript -->
+    <script src="./code/script.js"></script>
+
 </body>
 </html>
