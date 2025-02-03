@@ -22,7 +22,7 @@ Después hay que calcular el porcentaje de datos que faltan (-999), las estadist
 - **Tendencia de cambio**
 - **Extremos (Años con mas y menos precipitaciones)**
 
-![resultatScript](./Caps/Captura de pantalla de 2025-02-03 08-58-15.png)
+![resultatScript](./Caps/Captura_de_pantalla_de_2025-02-03_08-58-15.png)
 
  Ademas habrá que analizar los datos, de manera que tengamos que pensar que estadisticas podemos hacer.
 
