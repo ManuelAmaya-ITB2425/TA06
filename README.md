@@ -22,6 +22,8 @@ Después hay que calcular el porcentaje de datos que faltan (-999), las estadist
 - **Tendencia de cambio**
 - **Extremos (Años con mas y menos precipitaciones)**
 
+Todos los datos que tenemos hay que extraerlos, por lo tanto hay que crear un fichero log, para poder ver las estadisticas que pedimos.
+
 ![resultatScript](./Caps/resultatScript.png)
 
 Ademas habrá que analizar los datos, de manera que tengamos que pensar que estadisticas podemos hacer.
@@ -33,4 +35,10 @@ Para poder obtener todas las estadisticas necesarias necesitaremos un script:
 ![codi3](./Caps/codi3.png)
 ![codi4](./Caps/codi4.png)
 
+A veces los codigos o los datos pueden tener error, por lo tanto hay que tener un fichero de errores, que indique que errores tenemos.
+
+![ficheroError](./Caps/ficheroError.png)
+
 ## Ejercicio 3
+
+Una vez hemos obtenido todos los datos necesarios
