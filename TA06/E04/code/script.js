@@ -9,7 +9,7 @@ function loadCSVData() {
             if (!response.ok) {
                 throw new Error('Error al cargar el archivo CSV');
             }
-            return response.text(); // Leer el archivo como texto
+            return response.text(); // Leer el archivo como textooo
         })
         .then(data => {
             console.log("Datos CSV cargados:", data); // Verificar que los datos CSV se hayan cargado correctamente
