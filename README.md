@@ -43,4 +43,4 @@ A veces los codigos o los datos pueden tener error, por lo tanto hay que tener u
 
 Una vez hemos obtenido todos los datos necesarios hay que crear resumenes estadisticos y graficos estadisticos, para que sea mucho mas facil de entender.
 
-
+![graficos](./Caps/statistics_plot.png)
