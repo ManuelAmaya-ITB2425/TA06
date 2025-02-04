@@ -187,7 +187,7 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
 
     plot_statistics(year_avg_precipitation, monthly_totals, '../E03/statistics_plot.png')
 
-    # Print summary statistics to the terminal
+    # Print summary statistics to the terminalsi
     print(f"Percentage of valid files: {valid_percentage_files:.2f}%")
     print(f"Percentage of valid days: {valid_percentage_days:.2f}%")
     print(f"Number of processed data points: {data_count}")
