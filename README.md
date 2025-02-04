@@ -71,33 +71,6 @@ Ahora que ya tenemos los datos necesarios, necesitamos publicarlos y para eso ut
 ---
 
 ## Ejercicio 5: Estilo de Presentación
-En este ejercicio, se busca mejorar la presentación visual de los datos. A continuación se sugiere añadir un estilo básico en el código HTML, por ejemplo, cambiar el fondo, añadir colores y ajustar las fuentes para hacer la página más atractiva.
+En este ejercicio, se busca mejorar la presentación visual de los datos. Se podría, por ejemplo, agregar algún estilo a los elementos visuales como títulos, botones o gráficos en la página web de visualización de datos para hacerla más atractiva o fácil de entender.
 
-### Ejemplo de estilo CSS básico para la web:
-```css
-body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-header {
-    background-color: #0066cc;
-    padding: 20px;
-    color: white;
-    text-align: center;
-}
-
-h1, h2 {
-    font-weight: bold;
-}
-
-section {
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
+---
