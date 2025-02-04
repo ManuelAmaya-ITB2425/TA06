@@ -46,3 +46,7 @@ Una vez hemos obtenido todos los datos necesarios hay que crear resumenes estadi
 ![graficos](./Caps/statistics_plot.png)ç
 
 Después hay que exportar esos resumenes estadisticos a un fichero csv.
+
+## Ejercici0 4
+
+Ahora que ya tenemeos los datos necesarios, necesitamos publicarlas y para eso usaremos una web.
