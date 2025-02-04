@@ -1,9 +1,9 @@
 # DOCUMENTACION DE LA PRACTICA TA06
 _Hecho por Manuel Amaya, Rodrigo Montoya, Abel Aymami y Diego Cornelles_
 
-[Ejercicio 1](#Ejercicio 1)
+[Ejercicio 1](#Ejercicio-1)
 
-[Ejercici0 2](#Ejercicio 2)
+[Ejercicio 2](#Ejercicio-2)
 
 
 
