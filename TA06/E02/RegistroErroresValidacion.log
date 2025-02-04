@@ -18,3 +18,8 @@ Log Date: 2025-01-28 12:23:59.772781
 Log Date: 2025-01-28 12:39:18.609976
 
 Log Date: 2025-01-28 12:42:05.205489
+
+Log Date: 2025-01-28 12:58:39.977986
+../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 3 column 5 has invalid value 'z'
+../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 10 has invalid year '206'
+../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ/precip.P1.MIROC5.RCP60.2006-2100.REGRESION.dat: Line 22 column 14 has invalid value 'diego'
