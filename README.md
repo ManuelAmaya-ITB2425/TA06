@@ -1,71 +1,103 @@
-# DOCUMENTACION DE LA PRACTICA TA06
+# DOCUMENTACIÓN DE LA PRÁCTICA TA06
 _Hecho por Manuel Amaya, Rodrigo Montoya, Abel Aymami y Diego Cornelles_
 
 ## Clica en uno de los enlaces para ir al EJERCICIO que necesites
 
 - [**Ejercicio 1**](#Ejercicio-1)
-
 - [**Ejercicio 2**](#Ejercicio-2)
-
 - [**Ejercicio 3**](#Ejercicio-3)
-
 - [**Ejercicio 4**](#Ejercicio-4)
-
 - [**Ejercicio 5**](#Ejercicio-5)
 
-
+---
 
 ## Ejercicio 1:
-Primero de todo debíamos de **obtener los datos**, para ello debíamos entrar en AEMET (Agencia Estatal de Meteorología) para descargarnos los datos. Pero para poder descargarlos debíamos de conseguir la API-key, para ello buscamos obtención de api-key AEMET en el buscador y la primera opción será el enlace en el que la podremos obtener, entramos y rellenamos el formulario:
+Primero de todo debíamos de **obtener los datos**, para ello debíamos entrar en AEMET (Agencia Estatal de Meteorología) para descargarnos los datos. Pero para poder descargarlos debíamos de conseguir la API-key, para ello buscamos "obtención de API-key AEMET" en el buscador y la primera opción será el enlace en el que la podremos obtener, entramos y rellenamos el formulario:
 
 ![ImagenAPI](./Caps/Cap_API.png)
 
-Ahora, una vez obtenido la API-key, entramos a la página de AEMET por el enlace directo que nos ofreció el profesor, pegamos la API-key y buscamos el que era el archivo correcto a descargar:
+Una vez obtenida la API-key, entramos a la página de AEMET por el enlace directo que nos ofreció el profesor, pegamos la API-key y buscamos el archivo correcto a descargar:
 
 ![ImagenDescarga](./Caps/Cap_ArchDownload.png)
 
-Luego se deberán de subir los datos al PyCharm para poder procesarlas y organizarlas.
+Luego se deberán de subir los datos a PyCharm para poder procesarlas y organizarlas.
 
 ![ImagenPyCHarm](./Caps/Cap_PyCharm.png)
 
-## Ejercicio 2
-Una vez obtenidos los datos, deberemos de organizarlos y procesarlos. Para ello utilizamos la aplicación de PyCharm y con el apoyo de Copilot, en la que crearemos un archivo y utilizaremos el lenguaje Python.
+---
 
-Para ello el código debe de poder leer los ficheros; saber que estén delimitados a los datos especificados (Espacios, comas, separar cabecera de los datos, que todos los archivos tengan el mismo formato y asegurando que no tengan ningún error, según los delimitadores especificados. 
+## Ejercicio 2:
+Una vez obtenidos los datos, debemos organizarlos y procesarlos. Para ello utilizamos la aplicación PyCharm y con el apoyo de Copilot, en la que creamos un archivo y utilizamos el lenguaje Python.
 
-Después hay que calcular el porcentaje de datos que faltan (-999), las estadisticas de los datos procesados:
+El código debe poder leer los ficheros, asegurándose de que estén delimitados según los datos especificados (espacios, comas), separar cabeceras de los datos y asegurarse de que todos los archivos tengan el mismo formato y no contengan errores según los delimitadores especificados.
+
+Después, hay que calcular el porcentaje de datos que faltan (-999) y calcular las estadísticas de los datos procesados:
 
 - **Medianas totales y anuales**
 - **Tendencia de cambio**
-- **Extremos (Años con mas y menos precipitaciones)**
+- **Extremos (Años con más y menos precipitaciones)**
 
-Todos los datos que tenemos hay que extraerlos, por lo tanto hay que crear un fichero log, para poder ver las estadisticas que pedimos.
+Todos los datos deben ser extraídos, por lo tanto, hay que crear un fichero log para poder ver las estadísticas que se piden.
 
 ![resultatScript](./Caps/resultatScript.png)
 
-Ademas habrá que analizar los datos, de manera que tengamos que pensar que estadisticas podemos hacer.
+Además, habrá que analizar los datos, de manera que tengamos que pensar qué estadísticas podemos obtener.
 
-Para poder obtener todas las estadisticas necesarias necesitaremos un script:
+Para obtener todas las estadísticas necesarias, necesitaremos un script:
 
 ![codi1](./Caps/codi1.png)
 ![codi2](./Caps/codi2.png)
 ![codi3](./Caps/codi3.png)
 ![codi4](./Caps/codi4.png)
 
-A veces los codigos o los datos pueden tener error, por lo tanto hay que tener un fichero de errores, que indique que errores tenemos.
+A veces, los códigos o los datos pueden tener errores, por lo tanto, es importante tener un fichero de errores que indique qué fallos existen.
 
 ![ficheroError](./Caps/ficheroError.png)
 
-## Ejercicio 3
+---
 
-Una vez hemos obtenido todos los datos necesarios hay que crear resumenes estadisticos y graficos estadisticos, para que sea mucho mas facil de entender.
+## Ejercicio 3:
+Una vez hemos obtenido todos los datos necesarios, hay que crear resúmenes estadísticos y gráficos estadísticos, para que sea mucho más fácil de entender.
 
 ![graficos](./TA06/E03/statistics_plot.png)
 
-Después hay que exportar esos resumenes estadisticos a un fichero csv.
+Después, hay que exportar esos resúmenes estadísticos a un fichero CSV.
 
-## Ejercicio 4
+---
 
-Ahora que ya tenemeos los datos necesarios, necesitamos publicarlas y para eso usaremos una web.
+## Ejercicio 4:
+Ahora que ya tenemos los datos necesarios, necesitamos publicarlos y para eso utilizaremos una página web.
 
-## Ejercicio 5
+---
+
+## Ejercicio 5: Estilo de Presentación
+En este ejercicio, se busca mejorar la presentación visual de los datos. A continuación se sugiere añadir un estilo básico en el código HTML, por ejemplo, cambiar el fondo, añadir colores y ajustar las fuentes para hacer la página más atractiva.
+
+### Ejemplo de estilo CSS básico para la web:
+```css
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #0066cc;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
