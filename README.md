@@ -27,7 +27,7 @@ Luego se deberán de subir los datos a PyCharm para poder procesarlas y organiza
 ---
 
 # Ejercicio 2:
-[**Inicio**](Documentación-de-la-práctica-TA06)
+[**Volver al principio**](#documentación-de-la-práctica-ta06)
 
 Una vez obtenidos los datos, debemos organizarlos y procesarlos. Para ello utilizamos la aplicación PyCharm y con el apoyo de Copilot, en la que creamos un archivo y utilizamos el lenguaje Python.
 
