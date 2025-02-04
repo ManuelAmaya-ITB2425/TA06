@@ -202,16 +202,18 @@ def validate_folder(folder_path, expected_header, log_file_path, stats_file_path
     csv_output_path = '../E03/summary_statistics.csv'
     with open(csv_output_path, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(['Statistic', 'Value'])
+        csvwriter.writerow(['Type', 'Data'])
         csvwriter.writerow(['Percentage of valid files', f"{valid_percentage_files:.2f}%"])
         csvwriter.writerow(['Percentage of valid days', f"{valid_percentage_days:.2f}%"])
         csvwriter.writerow(['Number of processed data points', data_count])
         csvwriter.writerow(['Top 3 years with most precipitation'])
         for year, avg_precip in top_three_years:
-            csvwriter.writerow([f"Year {year}", f"{avg_precip:.2f} liters"])
+            csvwriter.writerow(['Year', year])
+            csvwriter.writerow(['Average Precipitation', f"{avg_precip:.2f} liters"])
         csvwriter.writerow(['Top 3 driest years'])
         for year, avg_precip in bottom_three_years:
-            csvwriter.writerow([f"Year {year}", f"{avg_precip:.2f} liters"])
+            csvwriter.writerow(['Year', year])
+            csvwriter.writerow(['Average Precipitation', f"{avg_precip:.2f} liters"])
 
     if total_files == 0:
         return 0.0
