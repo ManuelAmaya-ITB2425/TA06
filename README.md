@@ -3,12 +3,15 @@ _Hecho por Manuel Amaya, Rodrigo Montoya, Abel Aymami y Diego Cornelles_
 
 ## Ejercicio 1:
 Primero de todo debíamos de **obtener los datos**, para ello debíamos entrar en AEMET (Agencia Estatal de Meteorología) para descargarnos los datos. Pero para poder descargarlos debíamos de conseguir la API-key, para ello buscamos obtención de api-key AEMET en el buscador y la primera opción será el enlace en el que la podremos obtener, entramos y rellenamos el formulario:
+
 ![ImagenAPI](./Caps/Cap_API.png)
 
 Ahora, una vez obtenido la API-key, entramos a la página de AEMET por el enlace directo que nos ofreció el profesor, pegamos la API-key y buscamos el que era el archivo correcto a descargar:
+
 ![ImagenDescarga](./Caps/Cap_ArchDownload.png)
 
 Luego se deberán de subir los datos al PyCharm para poder procesarlas y organizarlas.
+
 ![ImagenPyCHarm](./Caps/Cap_PyCharm.png)
 
 ## Ejercicio 2
