@@ -26,7 +26,7 @@ Luego se deberán de subir los datos a PyCharm para poder procesarlas y organiza
 
 ---
 
-## Ejercicio 2:
+# Ejercicio 2:
 Una vez obtenidos los datos, debemos organizarlos y procesarlos. Para ello utilizamos la aplicación PyCharm y con el apoyo de Copilot, en la que creamos un archivo y utilizamos el lenguaje Python.
 
 El código debe poder leer los ficheros, asegurándose de que estén delimitados según los datos especificados (espacios, comas), separar cabeceras de los datos y asegurarse de que todos los archivos tengan el mismo formato y no contengan errores según los delimitadores especificados.
@@ -56,7 +56,7 @@ A veces, los códigos o los datos pueden tener errores, por lo tanto, es importa
 
 ---
 
-## Ejercicio 3:
+# Ejercicio 3:
 Una vez hemos obtenido todos los datos necesarios, hay que crear resúmenes estadísticos y gráficos estadísticos, para que sea mucho más fácil de entender.
 
 ![graficos](./TA06/E03/statistics_plot.png)
@@ -65,12 +65,12 @@ Después, hay que exportar esos resúmenes estadísticos a un fichero CSV.
 
 ---
 
-## Ejercicio 4:
+# Ejercicio 4:
 Ahora que ya tenemos los datos necesarios, necesitamos publicarlos y para eso utilizaremos una página web.
 
 ---
 
-## Ejercicio 5: Estilo de Presentación
+# Ejercicio 5: Estilo de Presentación
 En este ejercicio, se busca mejorar la presentación visual de los datos. Se podría, por ejemplo, agregar algún estilo a los elementos visuales como títulos, botones o gráficos en la página web de visualización de datos para hacerla más atractiva o fácil de entender.
 
 ---
