@@ -3,15 +3,15 @@ _Hecho por Manuel Amaya, Rodrigo Montoya, Abel Aymami y Diego Cornelles_
 
 ## Clica en uno de los enlaces para ir al EJERCICIO que necesites
 
-- [Ejercicio 1](#Ejercicio-1)
+- [**Ejercicio 1**](#Ejercicio-1)
 
-- [Ejercicio 2](#Ejercicio-2)
+- [**Ejercicio 2**](#Ejercicio-2)
 
-- [Ejercicio 3](#Ejercicio-3)
+- [**Ejercicio 3**](#Ejercicio-3)
 
-- [Ejercicio 4](#Ejercicio-4)
+- [**Ejercicio 4**](#Ejercicio-4)
 
-- [Ejercicio 5](#Ejercicio-5)
+- [**Ejercicio 5**](#Ejercicio-5)
 
 
 
