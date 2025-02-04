@@ -1,7 +1,7 @@
 // Función para leer y mostrar el archivo CSV
 function loadCSVData() {
     // Ruta al archivo CSV
-    const csvFile = '../../E03/summary_statistics.csv'; // Ruta ajustada
+    const csvFile = '../../E03/summary_statistics.csv'; // Asegúrate de que esta ruta sea correcta
 
     // Usamos fetch para obtener el archivo CSV
     fetch(csvFile)
@@ -9,7 +9,7 @@ function loadCSVData() {
             if (!response.ok) {
                 throw new Error('Error al cargar el archivo CSV');
             }
-            return response.text(); // Leer el archivo como textooo
+            return response.text(); // Leer el archivo como texto
         })
         .then(data => {
             console.log("Datos CSV cargados:", data); // Verificar que los datos CSV se hayan cargado correctamente
@@ -25,8 +25,8 @@ function displayCSV(csvContent) {
     const rows = csvContent.split('\n');
     let html = '<table>';
 
-    // Procesar cada fila
-    let isTopYearsSection = false; // Variable para manejar las secciones de "Top 3 years"
+    let isTopYearsSection = false;
+
     rows.forEach((row, index) => {
         const cells = row.split(',');
 
@@ -41,24 +41,21 @@ function displayCSV(csvContent) {
             });
             html += '</tr></thead><tbody>';
         } else {
-            // Comprobar si la fila contiene los encabezados de las secciones
             if (cells[0].includes("Top 3 years")) {
-                // Añadir el título para la sección de años con mayor precipitación
-                if (cells[0].includes("most precipitation")) {
-                    html += `<tr><td colspan="2"><strong>${cells[0]}</strong></td></tr>`;
-                } else if (cells[0].includes("driest years")) {
-                    html += `<tr><td colspan="2"><strong>${cells[0]}</strong></td></tr>`;
-                }
+                // Añadir la sección de años con precipitación o más secos
+                html += `<tr><td colspan="2"><strong>${cells[0]}</strong></td></tr>`;
+                isTopYearsSection = true;
             } else if (cells[0].includes("Year")) {
-                // Filas de años con precipitación o años secos
-                html += '<tr>';
-                html += `<td>${cells[0]}</td><td>${cells[1]}</td>`;
-                html += '</tr>';
+                // Si es una fila de año
+                if (isTopYearsSection) {
+                    html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td></tr>`;
+                } else {
+                    // Filas generales
+                    html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td></tr>`;
+                }
             } else {
                 // Filas de estadísticas generales
-                html += '<tr>';
-                html += `<td>${cells[0]}</td><td>${cells[1]}</td>`;
-                html += '</tr>';
+                html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td></tr>`;
             }
         }
     });
