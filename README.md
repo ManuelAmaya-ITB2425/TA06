@@ -59,6 +59,8 @@ A veces, los códigos o los datos pueden tener errores, por lo tanto, es importa
 ---
 
 # Ejercicio 3:
+[**Volver al principio**](#documentación-de-la-práctica-ta06)
+
 Una vez hemos obtenido todos los datos necesarios, hay que crear resúmenes estadísticos y gráficos estadísticos, para que sea mucho más fácil de entender.
 
 ![graficos](./TA06/E03/statistics_plot.png)
@@ -68,11 +70,15 @@ Después, hay que exportar esos resúmenes estadísticos a un fichero CSV.
 ---
 
 # Ejercicio 4:
+[**Volver al principio**](#documentación-de-la-práctica-ta06)
+
 Ahora que ya tenemos los datos necesarios, necesitamos publicarlos y para eso utilizaremos una página web.
 
 ---
 
-# Ejercicio 5: Estilo de Presentación
+# Ejercicio 5:
+[**Volver al principio**](#documentación-de-la-práctica-ta06)
+
 En este ejercicio, se busca mejorar la presentación visual de los datos. Se podría, por ejemplo, agregar algún estilo a los elementos visuales como títulos, botones o gráficos en la página web de visualización de datos para hacerla más atractiva o fácil de entender.
 
 ---
