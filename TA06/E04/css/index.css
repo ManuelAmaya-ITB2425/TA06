@@ -39,3 +39,26 @@ th, td {
 th {
     background-color: #f4f4f4;
 }
+
+/* Estilo para el botón personalizado */
+.custom-file-input {
+    padding: 12px 20px;
+    background-color: blue; /* Color de fondo */
+    color: white; /* Color de texto */
+    border-radius: 15px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efecto al pasar el cursor por encima */
+.custom-file-input:hover {
+    background-color: #45a049; /* Color más oscuro al pasar el cursor */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Ocultar el input original */
+#csvFileInput {
+    display: none;
+}
