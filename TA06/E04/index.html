@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estadísticas de Precipitación</title>
+    <title>Resumen Estadístico</title>
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Estadísticas de Precipitación</h1>
 
-        <!-- Gráfico único -->
-        <h2>Gráfico de Precipitación</h2>
-        <div class="graph">
-            <!-- Ruta de la imagen ajustada -->
-            <img src="../E03/statistics_plot.png" alt="Gráfico de Precipitación" width="600">
-        </div>
+    <h1>Gráficos Estadístico</h1>
 
-        <!-- Resúmenes Estadísticos -->
-        <h2>Resumen Estadístico</h2>
-        <table id="estadisticas">
-            <tr>
-                <th>Tipo</th>
-                <th>Dato</th>
-            </tr>
-        </table>
-    </div>
+    <!-- Mostrar la imagen -->
+    <img src="../E03/statistics_plot.png" alt="Gráfico Estadístico">
 
-    <!-- Enlace al archivo JavaScript -->
+    <h1>Resumenes Estadísticos</h1>
+
+    <!-- Botón personalizado y el input oculto -->
+    <label for="csvFileInput" class="custom-file-input">Selecciona el archivo CSV</label>
+    <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+
+    <!-- Contenedor para mostrar el nombre del archivo elegido -->
+    <p id="file-name-display">Fichero elegido: Ninguno</p>
+
+    <!-- Contenedor para mostrar la tabla con los datos del CSV -->
+    <div id="csv-data"></div>
+
+    <!-- Cargar el script al final para asegurar que el DOM está cargado -->
     <script src="./code/script.js"></script>
+
 </body>
 </html>
