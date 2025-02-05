@@ -1,83 +1,57 @@
-// Función para leer el archivo CSV y mostrarlo en la tabla
-function leerCSV() {
-    const archivoCSV = '../../E03/summary_statistics.csv'; // Ruta al archivo CSV en la carpeta E03
-    fetch(archivoCSV)
-        .then(response => response.text())
-        .then(data => {
-            const lines = data.split('\n');
-            let resumen = {};
-            let topPrecipitacion = [];
-            let topSecos = [];
-            let currentCategory = '';
+// Función para leer y mostrar el archivo CSV seleccionado por el usuario
+function handleFileSelect(event) {
+    const file = event.target.files[0]; // Obtener el archivo seleccionado
 
-            lines.forEach(line => {
-                const row = line.split(',');
+    if (!file) {
+        alert("Por favor, selecciona un archivo CSV.");
+        return;
+    }
 
-                if (row[0] === 'Percentage of valid files') {
-                    resumen.valid_files = row[1];
-                } else if (row[0] === 'Percentage of valid days') {
-                    resumen.valid_days = row[1];
-                } else if (row[0] === 'Number of processed data points') {
-                    resumen.data_points = row[1];
-                } else if (row[0] === 'Top 3 years with most precipitation') {
-                    currentCategory = 'precipitation';
-                } else if (row[0] === 'Top 3 driest years') {
-                    currentCategory = 'dry';
-                } else if (currentCategory === 'precipitation' && row[0].startsWith('Year')) {
-                    topPrecipitacion.push({
-                        year: row[1],
-                        precipitation: row[3]
-                    });
-                } else if (currentCategory === 'dry' && row[0].startsWith('Year')) {
-                    topSecos.push({
-                        year: row[1],
-                        precipitation: row[3]
-                    });
-                }
+    // Mostrar el nombre del archivo elegido
+    document.getElementById('file-name-display').textContent = `Fichero elegido: ${file.name}`;
+
+    const reader = new FileReader(); // Crear un lector de archivos
+
+    // Cuando el archivo se haya cargado, procesarlo
+    reader.onload = function (e) {
+        const csvContent = e.target.result; // Contenido del archivo
+        console.log("Datos CSV cargados:", csvContent); // Verificar en consola
+        displayCSV(csvContent); // Llamamos a la función para mostrar los datos
+    };
+
+    reader.readAsText(file); // Leer el archivo como texto
+}
+
+// Función para convertir el CSV en una tabla HTML
+function displayCSV(csvContent) {
+    const rows = csvContent.trim().split('\n');
+    let html = '<table border="1">';
+
+    let isTopYearsSection = false;
+
+    rows.forEach((row, index) => {
+        const cells = row.split(',');
+
+        // Ignorar filas vacías
+        if (cells.length === 1 && !cells[0]) return;
+
+        // Si la fila no tiene comas, es un encabezado
+        if (cells.length === 1) {
+            html += `<tr><th colspan="2">${cells[0]}</th></tr>`;
+            isTopYearsSection = cells[0].includes("Top 3");
+        } else {
+            // Filas normales de datos
+            html += '<tr>';
+            cells.forEach(cell => {
+                html += `<td>${cell.trim()}</td>`;
             });
-
-            // Mostrar los datos en la tabla
-            mostrarDatos(resumen, topPrecipitacion, topSecos);
-        })
-        .catch(error => console.error('Error leyendo el archivo CSV:', error));
-}
-
-function mostrarDatos(resumen, topPrecipitacion, topSecos) {
-    const tabla = document.getElementById('estadisticas');
-
-    // Mostrar el resumen de estadísticas
-    const row1 = tabla.insertRow();
-    row1.insertCell(0).innerText = 'Percentage of valid files';
-    row1.insertCell(1).innerText = resumen.valid_files;
-
-    const row2 = tabla.insertRow();
-    row2.insertCell(0).innerText = 'Percentage of valid days';
-    row2.insertCell(1).innerText = resumen.valid_days;
-
-    const row3 = tabla.insertRow();
-    row3.insertCell(0).innerText = 'Number of processed data points';
-    row3.insertCell(1).innerText = resumen.data_points;
-
-    // Mostrar los años con más precipitación
-    const row4 = tabla.insertRow();
-    row4.insertCell(0).innerText = 'Top 3 years with most precipitation';
-    const cell4 = row4.insertCell(1);
-    topPrecipitacion.forEach(item => {
-        const li = document.createElement('li');
-        li.innerText = `${item.year} - ${item.precipitation} liters`;
-        cell4.appendChild(li);
+            html += '</tr>';
+        }
     });
 
-    // Mostrar los años más secos
-    const row5 = tabla.insertRow();
-    row5.insertCell(0).innerText = 'Top 3 driest years';
-    const cell5 = row5.insertCell(1);
-    topSecos.forEach(item => {
-        const li = document.createElement('li');
-        li.innerText = `${item.year} - ${item.precipitation} liters`;
-        cell5.appendChild(li);
-    });
+    html += '</table>';
+    document.getElementById('csv-data').innerHTML = html;
 }
 
-// Llamar a la función para cargar el CSV al cargar la página
-window.onload = leerCSV;
+// Agregar evento al input para cargar archivos
+document.getElementById('csvFileInput').addEventListener('change', handleFileSelect);
