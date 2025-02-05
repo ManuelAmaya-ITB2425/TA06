@@ -1,6 +1,6 @@
 // Función para leer el archivo CSV y mostrarlo en la tabla
 function leerCSV() {
-    const archivoCSV = '../../E03/summary_statistics.csv'; // Ruta al archivo CSV
+    const archivoCSV = '../../E03/summary_statistics.csv'; // Ruta al archivo CSV en la carpeta E03
     fetch(archivoCSV)
         .then(response => response.text())
         .then(data => {
