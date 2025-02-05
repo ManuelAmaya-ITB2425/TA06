@@ -1,36 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas de Precipitación</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
-        }
-        table {
-            width: 50%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-    <script src="../E04/code/script.js" defer></script>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <h1>Resumen de Estadísticas de Precipitación</h1>
-    <img src="../E03/statistics_plot.png" alt="Gráficos Estadísticos" width="600">
-    <h2>Datos Estadísticos</h2>
-    <table id="data-table">
-    </table>
+    <div class="container">
+        <h1>Estadísticas de Precipitación</h1>
+
+        <!-- Gráficos -->
+        <h2>Gráficos de Precipitación</h2>
+        <div class="graph">
+            <img src="../E03/statistics_plot.png" alt="Gráfico 1" width="600">
+        </div>
+
+        <!-- Resúmenes Estadísticos -->
+        <h2>Resumen Estadístico</h2>
+        <table id="estadisticas">
+            <tr>
+                <th>Tipo</th>
+                <th>Dato</th>
+            </tr>
+        </table>
+    </div>
+
+    <script src="./code/script.js"></script>
 </body>
 </html>
