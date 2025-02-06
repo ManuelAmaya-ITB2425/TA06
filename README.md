@@ -74,14 +74,17 @@ Después, hay que exportar esos resúmenes estadísticos a un fichero CSV.
 
 Ahora que ya tenemos los datos necesarios, necesitamos publicarlos y para eso utilizaremos una página web.
 
+## GRAFICOS DE PRECIPITACIONES
 En la web tenemos 3 partes, primero tenemos las imagenes de los graficos que nos muestran la precipitacion anual y la mensual.
 
 ![principi](./Caps/principio.png)
 
+## BOTÓN DE TRIAJE DE CSV
 Después tenemos, un boton, ese boton nos permite elegir el fichero CSV que quieres mostrar, y de manera que puedas ver todos los datos de forma clara y concisa.
 
 ![medio](./Caps/medio.png)
 
+## VISUALIZACIÓN DE LOS DATOS
 Por ultimo tenemos los datos del fichero CSV, en esta parte nos los muestra separado por diferentes partes, dependiendo de lo que necesites se reparte de una forma o de otra.
 
 ![final](./Caps/final.png)
