@@ -96,6 +96,7 @@ Por ultimo tenemos los datos del fichero CSV, en esta parte nos los muestra sepa
 
 En este ejercicio, cada uno de los miembros del grupo debe llenar esta mesa de reflexión, sobre lo que ha aprendido realizando esta tarea.
 
+
 ![reflexio](./Caps/reflexio.png)
 
 ---
