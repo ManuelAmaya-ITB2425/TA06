@@ -74,6 +74,7 @@ Después, hay que exportar esos resúmenes estadísticos a un fichero CSV.
 
 Ahora que ya tenemos los datos necesarios, necesitamos publicarlos y para eso utilizaremos una página web.
 
+
 ---
 
 # Ejercicio 5:
