@@ -2,28 +2,64 @@ body {
     font-family: Arial, sans-serif;
     margin: 20px;
     padding: 0;
+    text-align: center; /* Centra los elementos en el body */
 }
 
 h1 {
-    text-align: center;
     color: #333;
 }
 
-h2 {
-    margin-top: 40px;
-    color: #555;
+/* Centrar la imagen */
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;
+    height: auto;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.graph {
+/* Contenedor del botón para centrarlo */
+.button-container {
     text-align: center;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
+/* Estilo para el botón personalizado */
+.custom-file-input {
+    padding: 12px 20px;
+    background-color: blue; /* Color de fondo */
+    color: white;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efecto al pasar el cursor por encima */
+.custom-file-input:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Ocultar el input original */
+#csvFileInput {
+    display: none;
+}
+
+/* Estilos para mostrar el nombre del archivo seleccionado */
+#file-name-display {
+    margin-top: 10px;
+    padding: 10px;
+    display: inline-block;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* ====== ESTILO ORIGINAL DE LA TABLA ====== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -38,27 +74,4 @@ th, td {
 
 th {
     background-color: #f4f4f4;
-}
-
-/* Estilo para el botón personalizado */
-.custom-file-input {
-    padding: 12px 20px;
-    background-color: blue; /* Color de fondo */
-    color: white; /* Color de texto */
-    border-radius: 15px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de la fuente */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    display: inline-block;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-/* Efecto al pasar el cursor por encima */
-.custom-file-input:hover {
-    background-color: #45a049; /* Color más oscuro al pasar el cursor */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-}
-
-/* Ocultar el input original */
-#csvFileInput {
-    display: none;
 }
