@@ -91,9 +91,11 @@ Por ultimo tenemos los datos del fichero CSV, en esta parte nos los muestra sepa
 
 ---
 
-# Ejercicio 5:
+# Ejercicio 5 (Reflexión):
 [**Volver al principio**](#documentación-de-la-práctica-ta06)
 
-En este ejercicio, se busca mejorar la presentación visual de los datos. Se podría, por ejemplo, agregar algún estilo a los elementos visuales como títulos, botones o gráficos en la página web de visualización de datos para hacerla más atractiva o fácil de entender.
+En este ejercicio, cada uno de los miembros del grupo debe llenar esta mesa de reflexión, sobre lo que ha aprendido realizando esta tarea.
+
+![reflexio](./Caps/reflexio.png)
 
 ---
